@@ -6,12 +6,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RabbitMQ.Client.Events;
-using rabbitr.net.Abstractions;
+using Rabbitr.Net.Abstractions;
 using Rabbitr.Messages;
 using Rabbitr.Responses;
 using Rabbitr.Utilities;
 
-namespace rabbitr.net 
+namespace Rabbitr.Net 
 {
     public class RabbitrClient : IRabbitrClient
     {
@@ -37,7 +37,7 @@ namespace rabbitr.net
             try
             {
                 _connection.sendChannel.ExchangeDeclare(exchangeName, "topic", false, false, null);
-                var jsonData = Messages.ToByte(message);
+                var jsonData = RpcMessages.ToByte(message);
 
                 var properties = _connection.sendChannel.CreateBasicProperties();
                 properties.ContentType = "application/json";
@@ -95,7 +95,7 @@ namespace rabbitr.net
             var expiration = UnixTime.To(DateTime.Now.AddSeconds(TimeoutSeconds));
             var request = new RpcRequestMessage(message, returnQueue, expiration);
             
-            var r = Messages.ToByte(request);
+            var r = RpcMessages.ToByte(request);
             
             Thread.Sleep(TimeSpan.FromTicks(1));
             var rpcQueueName = RpcQueueName(queueName);
@@ -116,7 +116,7 @@ namespace rabbitr.net
                 }
                 else
                 {
-                    var m = Messages.FromByte(ea.Body);
+                    var m = RpcMessages.FromByte(ea.Body);
                     _connection.recieveChannel.BasicAck(ea.DeliveryTag, false);
                     
                     taskCompletion.SetResult(m);
@@ -144,7 +144,7 @@ namespace rabbitr.net
                     var hResponse = handlerResponse as OkResponseGeneric<RpcMessage>;
 
                     var message = new RpcMessage(hResponse.Data.Data);
-                    var responseMessage = Messages.ToByte(message);
+                    var responseMessage = RpcMessages.ToByte(message);
                     
                     var properties = _connection.sendChannel.CreateBasicProperties();
                     properties.ContentType = "application/json";

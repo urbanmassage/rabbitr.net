@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Rabbitr.Messages;
 using Rabbitr.Responses;
 
-namespace rabbitr.net.Abstractions
+namespace Rabbitr.Net.Abstractions
 {
     public interface IRabbitrHandler
     {

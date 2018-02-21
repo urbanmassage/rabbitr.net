@@ -1,4 +1,4 @@
-namespace rabbitr.net.Configuration
+namespace Rabbitr.Net.Configuration
 {
     public class RabbitrConfiguration
     {

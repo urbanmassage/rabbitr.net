@@ -1,6 +1,6 @@
 using RabbitMQ.Client;
 
-namespace rabbitr.net.Abstractions
+namespace Rabbitr.Net.Abstractions
 {
     public interface IRabbitrConnection
     {

@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Autofac;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using rabbitr.net.Abstractions;
 
 namespace testing_console
 {

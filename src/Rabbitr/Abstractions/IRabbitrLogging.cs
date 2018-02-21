@@ -1,4 +1,4 @@
-namespace rabbitr.net.Abstractions
+namespace Rabbitr.Net.Abstractions
 {
     public interface IRabbitrLogging
     {

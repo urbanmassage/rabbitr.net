@@ -1,4 +1,4 @@
-using rabbitr.net.Abstractions;
+using Rabbitr.Net.Abstractions;
 
 namespace Rabbitr.Messages
 {

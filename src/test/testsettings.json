@@ -1,6 +1,0 @@
-{
-    "RabbitMq": {
-        "HostName": "localhost",
-        "PortNumber": "5672"
-    }
-}

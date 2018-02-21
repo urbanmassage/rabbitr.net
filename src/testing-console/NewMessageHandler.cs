@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using rabbitr.net.Abstractions;
 using Rabbitr.Messages;
 using Rabbitr.Utilities;
 

@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Rabbitr.Messages;
 
-namespace rabbitr.net.Abstractions
+namespace Rabbitr.Net.Abstractions
 {
     public interface IRabbitrClient
     {

@@ -2,10 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using rabbitr.net;
-using rabbitr.net.Abstractions;
 using Rabbitr.Exceptions;
 using Rabbitr.Messages;
+using Rabbitr.Net.Abstractions;
 using Rabbitr.Responses;
 
 namespace Rabbitr.Handlers

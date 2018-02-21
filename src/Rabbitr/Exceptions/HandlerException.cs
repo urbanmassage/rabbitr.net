@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.Serialization;
 
 namespace Rabbitr.Exceptions
 {
@@ -14,10 +13,6 @@ namespace Rabbitr.Exceptions
         }
 
         public HandlerException(string message, Exception innerException) : base(message, innerException)
-        {
-        }
-
-        protected HandlerException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
     }

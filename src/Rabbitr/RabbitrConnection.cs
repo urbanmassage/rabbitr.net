@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
-using rabbitr.net.Abstractions;
-using rabbitr.net.Configuration;
+using Rabbitr.Net.Abstractions;
+using Rabbitr.Net.Configuration;
 
-namespace rabbitr.net
+namespace Rabbitr.Net
 {
     public class RabbitrConnection : IRabbitrConnection
     {

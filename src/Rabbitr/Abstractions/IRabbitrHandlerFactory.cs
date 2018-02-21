@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Rabbitr.Responses;
 
-namespace rabbitr.net.Abstractions
+namespace Rabbitr.Net.Abstractions
 {
     public interface IRabbitrHandlerFactory
     {
