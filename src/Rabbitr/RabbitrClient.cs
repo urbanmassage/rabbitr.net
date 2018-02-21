@@ -13,7 +13,7 @@ using Rabbitr.Utilities;
 
 namespace rabbitr.net 
 {
-    public class RabbitrClient
+    public class RabbitrClient : IRabbitrClient
     {
         private readonly IRabbitrConnection _connection;
         private IRabbitrHandlerFactory _handlerFactory;
@@ -108,6 +108,7 @@ namespace rabbitr.net
 
             consumer.Received += (model, ea) => 
             {
+                _connection.recieveChannel.QueueDelete(returnQueue, false, true);
                 if(DateTime.Now > (UnixTime.From(expiration)))
                 {
                     //TODO: Error RPC timeout
@@ -116,6 +117,8 @@ namespace rabbitr.net
                 else
                 {
                     var m = Messages.FromByte(ea.Body);
+                    _connection.recieveChannel.BasicAck(ea.DeliveryTag, false);
+                    
                     taskCompletion.SetResult(m);
                 }
             };
@@ -147,7 +150,7 @@ namespace rabbitr.net
                     properties.ContentType = "application/json";
 
                     _connection.sendChannel.BasicPublish("", hResponse.Data.ReturnQueue, false, properties, responseMessage);
-                    _connection.sendChannel.BasicAck(ea.DeliveryTag, false);
+                    _connection.recieveChannel.BasicAck(ea.DeliveryTag, false);
                 }
                 else
                 {
