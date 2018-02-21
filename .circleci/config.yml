@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: microsoft/aspnetcore-build:2.0
+      - image: johnnyasantoss/dotnet-mono-docker:dotnet2.0-mono5.2-runtime
     steps:
       - checkout
       - setup_remote_docker
