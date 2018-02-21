@@ -1,9 +1,11 @@
 using System.Threading.Tasks;
+using Rabbitr.Messages;
+using Rabbitr.Responses;
 
 namespace rabbitr.net.Abstractions
 {
     public interface IRabbitrHandler
     {
-         Task<IRabbitrResponse> Handle(byte[] body);
+         Task<RpcMessage> Handle(byte[] body);
     }
 }

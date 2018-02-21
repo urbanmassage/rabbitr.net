@@ -1,7 +1,6 @@
 namespace rabbitr.net.Abstractions
 {
-    public interface IRabbitrResponse
+    public interface IRabbitrResponse<T>
     {
-         
     }
 }
